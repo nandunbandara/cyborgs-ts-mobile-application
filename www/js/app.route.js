@@ -3,13 +3,21 @@ angular.module('starter',['ionic'])
 .config(($stateProvider, $urlRouterProvider)=>{
   console.log('config loaded');
   $stateProvider
-    .state('home',{
-      url: '/',
-      templateUrl: 'templates/home.html'
-    })
     .state('login',{
-      url: '/login',
-      templateUrl: 'templates/login.html',
+      url: '/',
+      templateUrl: 'templates/login.html'
+    })
+    .state('home',{
+      url: '/home',
+      templateUrl: 'templates/home.html',
       controller: 'LoginController'
     })
+
+    .state('qr',{
+      url: '/qr',
+      templateUrl: 'templates/qr-view.html',
+      controller: 'QRGeneratorController'
+    })
+
+    $urlRouterProvider.otherwise('/');
 });
