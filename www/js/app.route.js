@@ -1,4 +1,4 @@
-angular.module('starter',['ionic'])
+angular.module('cyborgs-ts',['ionic'])
 
 .config(($stateProvider, $urlRouterProvider)=>{
   console.log('config loaded');
