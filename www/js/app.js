@@ -18,7 +18,7 @@ angular.module('cyborgs-ts', ['ionic','monospaced.qrcode'])
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
-      StatusBar.styleDefault();
+      StatusBar.hide();
     }
   });
 });
