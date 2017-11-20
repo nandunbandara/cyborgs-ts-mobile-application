@@ -1,21 +1,22 @@
 angular.module('cyborgs-ts')
 
-.controller('LoginController', function(AuthFactory){
+.controller('LoginController', ['AuthFactory', function(AuthFactory){
   console.log('loging controller');
   let self = this;
 
-  self.athenticateUser = ()=>{
-    let loginCredentials = {
-      userId: self.username,
-      password: self.password
-    };
+  self.loginCredentials = {};
 
-    AuthFactory.authenticateUser(loginCredentials).then((response)=>{
+  self.authenticateUser = ()=>{
+    console.log('authenticate method called');
+    AuthFactory.authenticateUser(self.loginCredentials).then((response)=>{
       //TODO: set session and navigate user to the user view
+      console.log(response);
     })
 
-  }
-})
+  };
+
+
+}])
 
 .controller('QRGeneratorController', function($scope){
   console.log('qr code controller');

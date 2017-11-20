@@ -5,12 +5,13 @@ angular.module('cyborgs-ts',['ionic'])
   $stateProvider
     .state('login',{
       url: '/',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'LoginController as login'
     })
+
     .state('home',{
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'LoginController'
     })
 
     .state('qr',{

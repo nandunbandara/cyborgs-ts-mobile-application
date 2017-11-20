@@ -21,4 +21,4 @@ angular.module('cyborgs-ts', ['ionic','monospaced.qrcode'])
       StatusBar.styleDefault();
     }
   });
-})
+});
