@@ -86,3 +86,55 @@ body .pane, .menu, .view, .list, .item       {
   border: 0;
   margin-top: 20px;
 }
+
+.home-header {
+  border-bottom: 2px solid #e6b500;
+  background-color: #e42112;
+  padding: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.home-header .user-container{
+  color: white;
+}
+
+.home-header .user-data-holder{
+  width: 20%;
+  display: inline;
+  color: white;
+  margin-left: 20px;
+}
+
+.home-header .logout-holder{
+
+}
+
+.home-header img{
+  width: 15%;
+  display: inline;
+}
+
+
+/*Home-Navigation*/
+.ts-navigation-bar{
+  text-align: center;
+}
+
+.ts-navigation-bar .ts-nav-item{
+  width: 45%;
+  height: 20%;
+  background-color: #262626;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 4px;
+  border-radius: 2px;
+
+  color: white;
+}
+
+.ts-navigation-bar .ts-nav-item img{
+  width: 50%;
+
+}

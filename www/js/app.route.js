@@ -12,6 +12,7 @@ angular.module('cyborgs-ts',['ionic'])
     .state('home',{
       url: '/home',
       templateUrl: 'templates/home.html',
+      controller: 'HomeController as home'
     })
 
     .state('qr',{
