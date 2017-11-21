@@ -10,7 +10,7 @@
         <img src="img/004-history.png"><br>
         View History
       </div>
-      <div class="ts-nav-item">
+      <div class="ts-nav-item" ng-click="home.logout()">
         <img src="img/001-smartphone.png"><br>
         Logout
       </div>
@@ -18,7 +18,13 @@
         <img src="img/003-new.png"><br>
         New Trip
       </div>
-
+    </div>
+    <div class="ts-trip-status-container">
+      <div class="waiting">
+        <img src="img/bus-stop.png">
+        <h3>Waiting for a bus?</h3>
+        <h5>Go to new trip to start your trip!</h5>
+      </div>
     </div>
   </div>
 </div>

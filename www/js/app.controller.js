@@ -32,13 +32,31 @@ angular.module('cyborgs-ts')
 
 }])
 
-.controller('HomeController',function($window){
+.controller('HomeController',function($window, $location, $ionicPopup){
   let self = this;
 
   self.name = $window.sessionStorage.getItem('name');
   self.permission = $window.sessionStorage.getItem('permission');
 
 
+  self.logout = ()=>{
+
+    let confirmPopup = $ionicPopup.confirm({
+      title: 'Logout',
+      template: 'Are you sure you want to logout?'
+    });
+
+    confirmPopup.then(function(res) {
+      if(res) {
+        $window.sessionStorage.removeItem('name');
+        $window.sessionStorage.removeItem('permission');
+        $window.sessionStorage.removeItem('token');
+        $location.path('/');
+      } else {
+        console.log('You are not sure');
+      }
+    });
+  }
 })
 
 .controller('QRGeneratorController', function($scope){

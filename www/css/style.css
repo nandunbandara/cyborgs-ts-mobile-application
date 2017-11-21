@@ -138,3 +138,22 @@ body .pane, .menu, .view, .list, .item       {
   width: 50%;
 
 }
+
+.ts-trip-status-container{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.ts-trip-status-container .waiting{
+  margin-top: 20%;
+}
+
+.ts-trip-status-container h3, h5{
+  color: white;
+}
+
+.ts-trip-status-container img{
+  width: 20%;
+}
