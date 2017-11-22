@@ -15,6 +15,18 @@ angular.module('cyborgs-ts',['ionic'])
       controller: 'HomeController as home'
     })
 
+    .state('home.main',{
+      url: '/main',
+      templateUrl: 'templates/home-main.html',
+      controller: 'HomeController as home'
+    })
+
+    .state('home.history',{
+      url: '/history',
+      templateUrl: 'templates/trip-history.html',
+      controller: 'HistoryController as history'
+    })
+
     .state('qr',{
       url: '/qr',
       templateUrl: 'templates/qr-view.html',

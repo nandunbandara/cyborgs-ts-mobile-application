@@ -21,7 +21,8 @@ angular.module('cyborgs-ts')
         let json = AuthToken.parseToken(response.data.token);
         $window.sessionStorage.setItem('name', json.name);
         $window.sessionStorage.setItem('permission', json.permission);
-        $location.path('/home');
+        $window.sessionStorage.setItem('userId', json.userId);
+        $location.path('/home/main');
       }else{
         //TODO: show error message
       }
@@ -51,6 +52,7 @@ angular.module('cyborgs-ts')
         $window.sessionStorage.removeItem('name');
         $window.sessionStorage.removeItem('permission');
         $window.sessionStorage.removeItem('token');
+        $window.sessionStorage.removeItem('userId');
         $location.path('/');
       } else {
         console.log('You are not sure');
@@ -64,3 +66,21 @@ angular.module('cyborgs-ts')
 
   $scope.qrcodeString = "123";
 })
+
+.controller('HistoryController', function(TripFactory, $window){
+
+  let self = this;
+
+  self.userId = $window.sessionStorage.getItem('userId');
+
+  self.getTripHistory = ()=>{
+    TripFactory.getTripHistoryByUser(self.userId).then((response)=>{
+      self.history = response.data.result;
+      console.log('history:',self.history);
+    })
+  };
+
+  self.getTripHistory();
+
+});
+

@@ -103,11 +103,10 @@ body .pane, .menu, .view, .list, .item       {
   width: 20%;
   display: inline;
   color: white;
-  margin-left: 20px;
 }
 
-.home-header .logout-holder{
-
+.home-header .balance-container{
+  float: right;
 }
 
 .home-header img{
