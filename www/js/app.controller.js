@@ -33,12 +33,20 @@ angular.module('cyborgs-ts')
 
 }])
 
-.controller('HomeController',function($window, $location, $ionicPopup){
+.controller('HomeController',function($window, $location, $ionicPopup, AccountFactory){
   let self = this;
 
   self.name = $window.sessionStorage.getItem('name');
   self.permission = $window.sessionStorage.getItem('permission');
+  self.userId = $window.sessionStorage.getItem('userId');
 
+  self.getAccountBalance = ()=>{
+    AccountFactory.getAccountBalance(self.userId).then((response)=>{
+      self.account = response.data.result[0];
+    })
+  };
+
+  self.getAccountBalance();
 
   self.logout = ()=>{
 

@@ -33,6 +33,18 @@ angular.module('cyborgs-ts')
     return trip;
   })
 
+  .factory('AccountFactory', function($http, PAYMENT_SERVICE){
+    let acc = {};
+
+    acc.getAccountBalance = (userId)=>{
+      return $http.get(PAYMENT_SERVICE+"accounts/"+userId).then((response)=>{
+        return response;
+      })
+    };
+
+    return acc;
+  })
+
 .service('AuthToken', function($window){
   this.parseToken = (token)=>{
     let base64Url = token.split('.')[1];

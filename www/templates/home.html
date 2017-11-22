@@ -1,6 +1,6 @@
 <div class="home-header">
   <div class="user-data-holder">
-    {{home.name}}<small>{{home.permission | uppercase}}</small><span class="balance-container">Balance: Rs 300.00</span>
+    {{home.name}} - <small>{{home.permission | uppercase}}</small><span class="balance-container">Balance: Rs {{home.account.balance | number:2}}</span>
   </div>
 </div>
 <div ui-view></div>
