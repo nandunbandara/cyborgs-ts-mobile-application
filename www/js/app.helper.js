@@ -30,6 +30,27 @@ angular.module('cyborgs-ts')
       })
     };
 
+    trip.initiateTrip = (tripData)=>{
+      return $http.post(TRIP_SERVICE+"trips/add", tripData).then((response)=>{
+        return response;
+      })
+    };
+
+
+    trip.updateTrip = (id, tripData)=>{
+      return $http.put(TRIP_SERVICE+"trips/update/".concat(id), tripData).then((response)=>{
+        return response;
+      })
+    };
+
+
+    trip.getDistance = (origin, destination)=>{
+      return $http.get('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+origin+'&destinations='+destination+'&key=AIzaSyCzI0Kq4trjbtTvE0pXDcezIq--dVVBLiI')
+        .then((response)=>{
+            return response;
+        })
+    };
+
     return trip;
   })
 
@@ -43,6 +64,37 @@ angular.module('cyborgs-ts')
     };
 
     return acc;
+  })
+
+
+  .factory('LocationFactory', function(){
+
+    let loc = {};
+
+    loc.getPlace = (latitude, longitude)=>{
+       let location = new google.maps.LatLng(latitude, longitude);
+
+       let map = new google.maps.Map(document.createElement('div'));
+
+       let service = new google.maps.places.PlacesService(map);
+
+       let request = {
+         location: location,
+         radius: 200
+       };
+
+       return new Promise((resolve, reject)=>{
+         service.nearbySearch(request, (results,status)=>{
+           if(status == google.maps.places.PlacesServiceStatus.OK){
+             resolve(results);
+           }else{
+             reject(results);
+           }
+         })
+       })
+    };
+
+    return loc;
   })
 
 .service('AuthToken', function($window){

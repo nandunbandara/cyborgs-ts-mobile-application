@@ -13,6 +13,7 @@
         "angular-qrcode": "^7.2.0",
         "cordova-android": "^6.4.0",
         "cordova-plugin-device": "^1.1.7",
+        "cordova-plugin-geolocation": "^3.0.0",
         "cordova-plugin-ionic-webview": "^1.1.16",
         "cordova-plugin-splashscreen": "^4.1.0",
         "cordova-plugin-statusbar": "^2.3.0",
@@ -29,7 +30,8 @@
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
             "cordova-plugin-statusbar": {},
-            "phonegap-plugin-barcodescanner": {}
+            "phonegap-plugin-barcodescanner": {},
+            "cordova-plugin-geolocation": {}
         },
         "platforms": [
             "android"
