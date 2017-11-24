@@ -33,12 +33,16 @@ angular.module('cyborgs-ts')
 
 }])
 
-.controller('HomeController',function($window, $location, $ionicPopup, AccountFactory){
+.controller('HomeController',function($window, $location, $ionicPopup, AccountFactory, $ionicPlatform){
   let self = this;
 
   self.name = $window.sessionStorage.getItem('name');
   self.permission = $window.sessionStorage.getItem('permission');
   self.userId = $window.sessionStorage.getItem('userId');
+
+  self.account = {};
+
+  self.account.balance = 0;
 
   self.getAccountBalance = ()=>{
     AccountFactory.getAccountBalance(self.userId).then((response)=>{
@@ -67,6 +71,18 @@ angular.module('cyborgs-ts')
       }
     });
   }
+
+//  scan qr code
+  self.scanBarCode = ()=>{
+    console.log('scan');
+    cordova.plugins.barcodeScanner.scan(function(imageData) {
+      alert(imageData.text);
+      console.log("Barcode Format -> " + imageData.format);
+      console.log("Cancelled -> " + imageData.cancelled);
+    }, function(error) {
+      console.log("An error happened -> " + error);
+    });
+  }
 })
 
 .controller('QRGeneratorController', function($scope){
@@ -75,16 +91,22 @@ angular.module('cyborgs-ts')
   $scope.qrcodeString = "123";
 })
 
-.controller('HistoryController', function(TripFactory, $window){
+.controller('HistoryController', function(TripFactory, $window, $ionicLoading){
 
   let self = this;
 
   self.userId = $window.sessionStorage.getItem('userId');
 
   self.getTripHistory = ()=>{
+
+    $ionicLoading.show({
+      template: '<ion-spinner icon="lines"></ion-spinner><br>Loading ...'
+    });
+
     TripFactory.getTripHistoryByUser(self.userId).then((response)=>{
       self.history = response.data.result;
       console.log('history:',self.history);
+      $ionicLoading.hide();
     })
   };
 

@@ -18,7 +18,8 @@
         "cordova-plugin-statusbar": "^2.3.0",
         "cordova-plugin-whitelist": "^1.3.3",
         "ionic-plugin-keyboard": "^2.2.1",
-        "ng2-qrcode": "^0.1.1"
+        "ng2-qrcode": "^0.1.1",
+        "phonegap-plugin-barcodescanner": "git+https://github.com/wildabeast/BarcodeScanner.git"
     },
     "cordova": {
         "plugins": {
@@ -27,7 +28,8 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "cordova-plugin-statusbar": {}
+            "cordova-plugin-statusbar": {},
+            "phonegap-plugin-barcodescanner": {}
         },
         "platforms": [
             "android"

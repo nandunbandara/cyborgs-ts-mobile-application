@@ -2,10 +2,6 @@
   <div class="ts-container">
   </div>
   <h1>Hello</h1>
-  <qrcode data="qrcodeString"></qrcode>
-  <qrcode data="http://example.com" href="http://example.com"></qrcode>
 
-
-
-  {{qrcodeString}}
+  <qrcode version="30" error-correction-level="M" size="200" data="{{qrcodeString}}" download></qrcode>
 </div>

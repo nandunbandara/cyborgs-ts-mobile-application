@@ -1,9 +1,22 @@
 <div class="ts-container">
   <div class="home-content">
-    <h1>History</h1>
+    <button class="ts-btn-back" ui-sref="home.main">
+      <img src="img/back.png">
+      <small>BACK</small>
+    </button>
+    <div class="history-container">
+      <div class="history-item" ng-repeat="item in history.history">
+        <div class="history-image-container">
+          <img src="img/bus-history.png">
+        </div>
+        <div class="history-details">
+          {{item.startPoint}} - {{item.endPoint}}<br>
+          <small>{{item.journeyDate | date:"MM/dd/yyyy 'at' h:mma"}}</small>
+        </div>
+        <div class="history-distance">
+          {{item.distance}}km
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<div ng-repeat="item in history.history">
-  {{item.endPoint}}
 </div>
